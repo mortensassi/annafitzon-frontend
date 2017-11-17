@@ -1,0 +1,8 @@
+/**
+ * Reset
+ */
+
+svg:not('.locked') path {
+  fill: inherit;
+  stroke: inherit;
+}

@@ -1,0 +1,90 @@
+/**
+ * Spacing
+ * [1] Function to fetch values from nested maps
+ * [2] Set Spacings
+ * [3] Mixin to create direction-based responsive spacing
+ */
+
+@function map-deep-get($map, $keys...) { /* [1] */
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+$spacings: ( /* [2] */
+  1: (xs: 80px, sm: 80px, md: 100px, lg: 120px),
+  2: (xs: 40px, sm: 40px, md: 40px, lg: 60px),
+  3: (xs: 20px, sm: 20px, md: 20px, lg: 40px),
+  4: (xs: 10px, sm: 10px, md: 10px, lg: 20px)
+);
+
+@mixin space($direction) {  /* [3] */
+  @for $i from 1 through length($spacings) {
+    .#{$direction}Spacing#{$i} {
+      padding-#{$direction}: map-deep-get($spacings, $i , xs);
+
+      @include mq($from: tablet) {
+        padding-#{$direction}: map-deep-get($spacings, $i , sm);
+      }
+
+      @include mq($from: desktop) {
+        padding-#{$direction}: map-deep-get($spacings, $i , md);
+      }
+
+      @include mq($from: wide) {
+        padding-#{$direction}: map-deep-get($spacings, $i , lg);
+      }
+    }
+  }
+}
+
+@include space(bottom);
+@include space(top);
+
+
+
+
+
+/**
+ * Mobile Top Spacing
+ */
+
+@for $i from 1 through 4 {
+  .mobileTopSpacing#{$i} {
+    @include mq($until: tablet) {
+      padding-top: map-deep-get($spacings, $i, xs);
+    }
+  }
+}
+
+/**
+ * Mobile & Tablet Spacing
+ */
+
+@for $i from 1 through 4 {
+  .xs-smTopSpacing#{$i} {
+    @include mq($until: tablet) {
+      padding-top: map-deep-get($spacings, $i, xs);
+    }
+    @include mq($from: tablet, $until: desktop) {
+      padding-top: map-deep-get($spacings, $i, sm);
+    }
+  }
+}
+
+
+
+
+
+/**
+ * Ratio
+ */
+
+.ratio4-3 {
+  &:before {
+    content: '';
+    display: block;
+    margin-top: 75%
+  }
+}

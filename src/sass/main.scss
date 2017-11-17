@@ -1,0 +1,49 @@
+/**
+ * main
+*/
+
+$font-size-base: 18px;
+
+$mq-responsive: true;
+
+$mq-breakpoints: (
+  mobile: 320px,
+  mobileLandscape: 460px,
+  tablet: 768px,
+  desktop: 992px,
+  wide: 1200px,
+  xl: 1440px,
+  xxl: 1800px,
+);
+
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/_mixins.scss';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/_normalize.scss';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/_scaffolding.scss';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/_type.scss';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/_grid.scss';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/_utilities.scss';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/_responsive-utilities.scss';
+@import '~slick-carousel/slick/slick.scss';
+@import '~sass-mq/_mq.scss';
+
+
+// abstracts
+@import 'abstract/variables';
+@import 'abstract/mixins';
+@import 'abstract/spacing';
+@import 'abstract/anim';
+
+// base
+@import 'base/global';
+@import 'base/typography';
+@import 'base/links';
+@import 'base/buttons';
+
+// components
+@import 'components/project';
+@import 'components/slider';
+@import 'components/profile';
+
+// layouts
+@import 'layout/header';

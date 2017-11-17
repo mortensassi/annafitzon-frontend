@@ -1,0 +1,59 @@
+/**
+ * Global
+ */
+
+html {
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font: normal 1.2rem/1.5 'space_monoregular', sans-serif;
+  padding: 1.5rem 0;
+
+  @include mq($from: tablet) {
+    padding: 3rem 1.5rem;
+  }
+
+  @include mq($from: desktop) {
+    padding: 4rem 2.5rem;
+  }
+}
+
+.container-fluid {
+  max-width: 1440px;
+  @include mq($from: xxl) {
+      max-width: none;
+  }
+}
+
+// Fix sidebar
+
+.fixed {
+  @include mq($from: tablet) {
+    position: fixed;
+  }
+
+  @include mq($from: xl) {
+    width: calc((100% - (100% - 1440px)) * .25)
+  }
+}
+
+main {
+  @include mq($from: tablet) {
+    margin-left: calc(33.3333333333% + 15px);
+  }
+  @include mq($from: desktop) {
+    margin-left: calc(25% + 15px);
+  }
+  @include mq($from: xl) {
+    margin-left: 25%;
+  }
+}
+
+.single-wrap {
+  padding-top: 1.333333333333333em;
+  @include border();
+}

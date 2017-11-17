@@ -1,0 +1,46 @@
+/**
+ * Mixins
+ * [1] DRY on Creating Pseudo Elements
+ */
+
+@mixin pseudo($display: block, $pos: absolute, $content: ''){ /* [1] */
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+
+@mixin border($direction: top, $thickness: 1px) {
+  border-#{$direction}: #{$thickness} solid $color-main;
+}
+
+@mixin triggerTarget($breakpoint: null) {
+  overflow: hidden;
+  transition: $anim;
+
+  @if($breakpoint) {
+    @include mq($until: $breakpoint) {
+
+      &[aria-expanded="false"] {
+        max-height: 0;
+        visibility: visible;
+      }
+
+      &[aria-expanded="true"] {
+        max-height: 100vh;
+        visibility: visible;
+      }
+    }
+  }
+  @else {
+    &[aria-expanded="false"] {
+      max-height: 0;
+      visibility: visible;
+    }
+
+    &[aria-expanded="true"] {
+      max-height: 100vh;
+      visibility: visible;
+    }
+  }
+}

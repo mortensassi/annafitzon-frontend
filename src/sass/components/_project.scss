@@ -1,0 +1,43 @@
+/**
+ * Project
+ */
+
+.project {
+  transform: translateY(10vh);
+  opacity: 0;
+  transition: $anim;
+
+  + .project {
+    margin-top: 2.5rem;
+    transition-delay: .25s
+  }
+
+  &--show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.project__header {
+  padding: 1.1em 0;
+
+  button {
+    margin-top: .1em;
+  }
+}
+
+.project__info {
+  @extend .menu;
+
+  @include mq($until: wide) {
+    &[aria-expanded="false"] {
+      max-height: 0;
+      visibility: visible;
+    }
+
+    &[aria-expanded="true"] {
+      max-height: 400px;
+      visibility: visible;
+    }
+  }
+}

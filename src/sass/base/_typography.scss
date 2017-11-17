@@ -1,0 +1,71 @@
+/**
+ * Typography
+ */
+
+$font_path: '../assets/fonts/';
+
+@font-face {
+  font-family: 'space_monoregular';
+  src: url($font_path +'spacemono-regular-webfont.woff2') format('woff2'),
+  url($font_path +'spacemono-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+  text-transform: uppercase;
+  line-height: 1.5;
+  margin: 0;
+
+  + p {
+    margin-top: 1rem;
+  }
+}
+
+h1, .h1,
+h2, .h2 {
+  font-size: 1.4rem;
+  @include mq($from: desktop) {
+    font-size: 1.6rem;
+  }
+}
+
+dt {
+  font-weight: 400;
+  display: inline;
+
+  &:not(:last-of-type) {
+    &:after {
+      content: ', ';
+    }
+  }
+}
+
+dl {
+  margin-bottom: 1.5rem;
+}
+
+p {
+  margin: 0;
+  + p {
+    margin-top: 1rem;
+  }
+  img + & {
+    margin-top: 1rem;
+  }
+
+  + h2,
+  + h3 {
+    margin-top: 2rem;
+  }
+
+  .project__content & {
+    font-size: 1.1em;
+  }
+}
+
+article {
+  + article {
+    margin-top: 2rem;
+  }
+}

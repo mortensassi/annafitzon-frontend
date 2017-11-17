@@ -1,0 +1,11 @@
+/**
+ * Profile
+ */
+
+.profile {
+  @include triggerTarget();
+  max-height: 0;
+  &[aria-expanded="true"] {
+    margin: 0 0 1.5rem;
+  }
+}

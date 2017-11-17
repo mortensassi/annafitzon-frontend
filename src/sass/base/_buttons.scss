@@ -1,0 +1,57 @@
+/**
+ * Buttons
+ */
+
+button {
+  background-color: transparent;
+  border: 1px solid $color-main;
+  border-radius: 100%;
+  height: 3rem;
+  width: 3rem;
+  padding: .35em .7rem .35em;
+  transition: $anim;
+  font-size: 1.8rem;
+  line-height: 0;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover,
+  &[aria-expanded="true"] {
+    color: #fff;
+    background-color: $color-main;
+    svg {
+      fill: #fff;
+    }
+  }
+
+  &[aria-expanded="false"] {
+    color: $color-main;
+    background-color: transparent;
+    svg {
+      fill: $color-main;
+    }
+  }
+
+  &.back-to-top {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    transform: scale(0);
+    transition: $anim transform;
+
+    @include mq($from: tablet) {
+      right: initial;
+      left: 3rem;
+      bottom: 3rem;
+    }
+  }
+
+  &.back-to-top--visible {
+    transform: scale(1);
+    transition: $anim transform;
+  }
+}
+
