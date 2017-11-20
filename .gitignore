@@ -12,3 +12,7 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
+
+/wp
+!wp/docker-compose.yml
+!wp/wp-app/wp-content/themes
