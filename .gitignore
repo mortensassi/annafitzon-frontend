@@ -16,3 +16,4 @@ yarn-error.log*
 /wp
 !wp/docker-compose.yml
 !wp/wp-app/wp-content/themes
+/src/compiled-icons/

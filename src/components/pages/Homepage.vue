@@ -10,8 +10,7 @@
     name: 'Homepage',
     data () {
       return {
-        projects: [],
-        category: []
+        projects: []
       }
     },
 

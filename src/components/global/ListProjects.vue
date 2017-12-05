@@ -5,26 +5,49 @@
           header.project__header.clearfix
             .pull-left
               h1 {{ project.title.rendered }}
-              h2 {{ project.acf.category }}
-            button.hidden-lg.pull-right i
-          .project__info
+            button.hidden-lg.pull-right(@click="selected = project.id") i
+          .project__info(:aria-expanded="project.id == selected ? 'true' : 'false'")
             .project__content(v-html="project.content.rendered")
             footer.project__footer
             div –
-            time(:datetime="project.acf.project_year") {{ project.acf.project_year }}
+            time(v-if="project.acf.project_year" v-bind:datetime="project.acf.project_year") {{ project.acf.project_year }}
 
         .col-xs-12.col-lg-8
-          .slider
-            .slider__item(v-for="(item, index) in project.acf")
-              img(v-bind:src="item.url" v-bind:alt="index")
-
-
-
+          slick.slider(:ref="slick" v-bind:options="slickOptions")
+            .slider__item(v-if="img !== false && img.url" v-for="img in project.acf")
+              img.img-responsive(v-bind:src="img.url" v-bind:alt="img.alt")
 </template>
 
 <script>
+  import slick from 'vue-slick'
+
   export default {
     name: 'listProjects',
-    props: ['projects']
+    props: ['projects'],
+
+    data () {
+      return {
+        slickOptions: {
+          arrows: false,
+          dots: true,
+          mobileFirst: true,
+          responsive: [
+            {
+              breakpoint: 992,
+              settings: {
+                fade: true,
+                arrows: true
+              }
+            }
+          ]
+        },
+
+        selected: undefined
+      }
+    },
+
+    components: {
+      'slick': slick
+    }
   }
 </script>
