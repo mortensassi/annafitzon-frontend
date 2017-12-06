@@ -13,7 +13,16 @@ yarn-error.log*
 *.njsproj
 *.sln
 
-/wp
+!wp/
+
+wp/*
 !wp/docker-compose.yml
+!wp/wp-app
+
+wp/wp-app/*
+!wp/wp-app/wp-content
+
+wp/wp-app/wp-content/*
 !wp/wp-app/wp-content/themes
+
 /src/compiled-icons/
