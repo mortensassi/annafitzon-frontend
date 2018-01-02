@@ -2,12 +2,12 @@
  * Typography
  */
 
-$font_path: '../assets/fonts/';
+$font_path: resolve('@styles/fonts/');
 
 @font-face {
   font-family: 'space_monoregular';
-  src: url($font_path +'spacemono-regular-webfont.woff2') format('woff2'),
-  url($font_path +'spacemono-regular-webfont.woff') format('woff');
+  src: url('fonts/spacemono-regular-webfont.woff2') format('woff2'),
+  url('fonts/spacemono-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -16,6 +16,7 @@ h1, .h1, h2, .h2, h3, .h3 {
   text-transform: uppercase;
   line-height: 1.5;
   margin: 0;
+  content: $font_path;
 
   + p {
     margin-top: 1rem;

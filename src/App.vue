@@ -4,7 +4,7 @@
       a.sr-only(href="#main") Zum Hauptinhalt wechseln
       .row
         .col-xs-12.col-sm-4.col-md-3.fixed
-          wpheader
+          wpheader(v-bind="menu")
         main.col-xs-12.col-sm-8.col-md-9#main
           router-view
 
@@ -16,10 +16,18 @@
   export default {
     name: 'app',
 
+    data () {
+      return {
+        menu: {
+          open: false
+        }
+      }
+    },
+
     components: {
       wpheader
     }
   }
 </script>
 
-<style src="./sass/main.scss" lang="scss"></style>
+<style src="./assets/styles/main.scss" lang="scss"></style>

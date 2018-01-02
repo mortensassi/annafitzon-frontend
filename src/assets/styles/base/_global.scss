@@ -57,3 +57,38 @@ main {
   padding-top: 1.333333333333333em;
   @include border();
 }
+
+.loading {
+  text-align: right;
+  transition: all .3s cubic-bezier(.5,.9,0,1);
+  opacity: 1;
+  &--end {
+    opacity: 0;
+    display: none;
+  }
+
+  &__dot {
+    $dotSize: .6rem;
+    display: inline-block;
+    width: $dotSize;
+    height: $dotSize;
+    margin: 0 $dotSize;
+    background: #666;
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 .2rem #ccc;
+    animation: loadingFade 1s infinite;
+  }
+
+  @for $i from 1 through 4 {
+    &__dot:nth-child(#{$i}) {
+      animation-delay: calc(#{$i}s / 5);
+    }
+  }
+}
+
+@keyframes loadingFade {
+  0% { opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0; }
+}

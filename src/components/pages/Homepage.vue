@@ -1,5 +1,9 @@
 <template lang="pug">
-  list-projects(v-bind:projects="projects")
+  #homepage
+    div.loading(:class="loading ? '' : 'loading--end'")
+      -for ($i=0;$i<4;$i = $i + 1 )
+        .loading__dot
+    list-projects(:projects="projects")
 </template>
 
 <script>
@@ -10,18 +14,23 @@
     name: 'Homepage',
     data () {
       return {
-        projects: []
+        title: 'Anna Fitzon – Visuelle Kommunikation',
+        projects: [],
+        loading: true,
+        slick: ''
       }
     },
 
     created () {
       this.getProjects()
+      document.title = this.title
     },
 
     methods: {
       getProjects () {
         axios.get(process.env.API_URL + '/wp-json/wp/v2/projects')
           .then(response => {
+            this.loading = false
             this.projects = response.data
           })
           .catch(e => {

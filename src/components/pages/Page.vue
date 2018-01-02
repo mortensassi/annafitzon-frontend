@@ -1,5 +1,6 @@
 <template lang="pug">
-  single-post(:post="post")
+  #page
+    single-post(:post="post")
 </template>
 
 <script>
@@ -17,7 +18,6 @@
 
     created () {
       this.getPost()
-      document.title = this.title
     },
 
     methods: {
@@ -30,6 +30,7 @@
             if (this.post === undefined) {
               this.$router.push({name: 'NotFound'})
             }
+            document.title = this.post.title.rendered
           })
           .catch(e => {
             console.log(e)
