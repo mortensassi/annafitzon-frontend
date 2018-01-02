@@ -1,0 +1,11 @@
+/**
+ * _page
+*/
+
+.page {
+  @extend .project;
+}
+
+.page--show {
+  @extend .project--show;
+}

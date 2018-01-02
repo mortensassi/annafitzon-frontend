@@ -3,7 +3,7 @@
     nav.navigation.navigation--main(aria-label="site")
 
       h1.logo
-        router-link(to="/")
+        router-link(to="/", @click.native="closeMenu")
           | Anna Fitzon
           br
           | Kommunikationsdesign
@@ -24,7 +24,7 @@
 
         li.menu__item.menu__item--imprint
 
-          router-link(to="impressum") Impressum
+          router-link(to="impressum", @click.native="closeMenu") Impressum
 </template>
 
 <script>
@@ -48,6 +48,11 @@
       },
       toggleProfile: function () {
         this.profileOpen = !this.profileOpen
+      },
+      closeMenu: function () {
+        if (this.menuOpen === true) {
+          this.menuOpen = !this.menuOpen
+        }
       }
     }
   }

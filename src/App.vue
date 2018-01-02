@@ -7,11 +7,13 @@
           wpheader(v-bind="menu")
         main.col-xs-12.col-sm-8.col-md-9#main
           router-view
+        back-to-top(text="Top")
 
 </template>
 
 <script>
-  import wpheader from './components/global/Header.vue'
+  import wpheader from './components/global/Header'
+  import BackToTop from './components/global/BackToTop'
 
   export default {
     name: 'app',
@@ -25,7 +27,8 @@
     },
 
     components: {
-      wpheader
+      wpheader,
+      BackToTop
     }
   }
 </script>

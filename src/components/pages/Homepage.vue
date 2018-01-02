@@ -1,5 +1,6 @@
 <template lang="pug">
   #homepage
+    // TODO create Loading Dots Component
     div.loading(:class="loading ? '' : 'loading--end'")
       -for ($i=0;$i<4;$i = $i + 1 )
         .loading__dot

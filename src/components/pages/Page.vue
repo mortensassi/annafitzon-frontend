@@ -1,6 +1,10 @@
 <template lang="pug">
   #page
-    single-post(:post="post")
+    div.loading(:class="loading ? '' : 'loading--end'")
+      -for ($i=0;$i<4;$i = $i + 1 )
+        .loading__dot
+    .page(:class="{'page--show': showPage}")
+      single-post(:post="post")
 </template>
 
 <script>
@@ -12,12 +16,18 @@
     data () {
       return {
         title: '',
-        post: []
+        post: [],
+        loading: true,
+        showPage: false
       }
     },
 
     created () {
       this.getPost()
+    },
+
+    updated () {
+      this.showPage = true
     },
 
     methods: {
@@ -26,6 +36,7 @@
         axios.get(process.env.API_URL + '/wp-json/wp/v2/pages/?slug=' + path.replace(/^\/|\/$/g, ''))
           .then(response => {
             this.post = response.data[0]
+            this.loading = false
 
             if (this.post === undefined) {
               this.$router.push({name: 'NotFound'})
