@@ -20,7 +20,9 @@
         .col-xs-12.col-lg-8
           slick.slider(:ref="slick" :options="slickOptions")
             .slider__item(v-if="img !== false && img.url" v-for="img in project.acf")
-              img.img-responsive(:src="img.sizes.medium" :srcset="getSrcSet(img)" :alt="img.alt")
+              // Animated GIFS have to be embedded in full-size to prevent being converted to static ones.
+              img.img-responsive(v-if="img.mime_type === 'image/gif'", :src="img.url")
+              img.img-responsive(v-else :src="img.sizes.medium" :srcset="getSrcSet(img)" :alt="img.alt")
 </template>
 
 <script>
