@@ -7,10 +7,10 @@
               h1 {{ project.title.rendered }}
               h2 {{ project.category_names[0] }}
             button.hidden-lg.pull-right(@click.prevent="activeProject(project.id)") i
+
           .project__info(:aria-expanded="visibleProjectText === project.id ? 'true' : 'false'")
-            .project__content(v-html="project.content.rendered", :class="fullProjectText === project.id ? 'project__content--read-more' : ''")
-            div.read-more(v-if="project.content.rendered.length >= 850")
-              a(@click.prevent="collapseText(project.id)") [...]
+            .project__content.hidden-lg(v-html="project.content.rendered")
+            read-more.project__content.visible-lg(more-str="[...]" v-bind:text="project.content.rendered" link="#" less-str="[...]" v-bind:max-chars="300")
             footer.project__footer
             div –
             time(v-if="project.acf.project_year" v-bind:datetime="project.acf.project_year") {{ project.acf.project_year }}
@@ -19,7 +19,7 @@
 
         .col-xs-12.col-lg-8
           slick.slider(:ref="slick" :options="slickOptions")
-            .slider__item(v-if="img !== false && img.url" v-for="img in project.acf")
+            .slider__item(v-if="img !== false && img.url" v-for="img in project.acf.images")
               // Animated GIFS have to be embedded in full-size to prevent being converted to static ones.
               img.img-responsive(v-if="img.mime_type === 'image/gif'", :src="img.url")
               img.img-responsive(v-else :src="img.sizes.medium" :srcset="getSrcSet(img)" :alt="img.alt")
@@ -66,13 +66,10 @@
 
     methods: {
       getSrcSet (img) {
-        return `${img.sizes.medium_large} ${img.sizes['medium_large-width']}w, ${img.sizes.large} ${img.sizes['large-width']}w `
+        return `${img.sizes.medium_large} ${img.sizes['medium_large-width']}w, ${img.sizes.large} ${img.sizes['large-width']}w, ${img.url} 1200w`
       },
       activeProject (projID) {
         this.visibleProjectText = this.visibleProjectText === projID ? null : projID
-      },
-      collapseText (projID) {
-        this.fullProjectText = this.fullProjectText === projID ? null : projID
       }
     }
   }

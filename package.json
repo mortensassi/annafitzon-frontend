@@ -20,7 +20,7 @@
     "sass-mq": "^3.3.2",
     "slick-carousel": "^1.8.1",
     "vue": "^2.5.2",
-    "vue-read-more": "^1.1.0",
+    "vue-read-more": "^1.1.1",
     "vue-router": "^3.0.1",
     "vue-slick": "^1.1.12",
     "vue-svgicon": "^2.1.0"

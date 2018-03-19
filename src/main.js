@@ -4,12 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import * as svgicon from 'vue-svgicon'
+import ReadMore from 'vue-read-more'
 
 Vue.config.productionTip = false
 
 Vue.use(svgicon, {
   tagName: 'svgicon'
 })
+
+Vue.use(ReadMore)
 
 /* eslint-disable no-new */
 new Vue({

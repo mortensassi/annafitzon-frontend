@@ -11,12 +11,10 @@ a {
     color: $color-second;
   }
 
-  &[href^="http"] {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6l-2-2v8H5V5h8l-2-2H5zm9 0l2.656 2.656-7.5 7.5 1.688 1.688 7.5-7.5L21 10V3h-7z'/%3E%3C/svg%3E") no-repeat 0 .22em / 1em 1em;
-    padding-left: 1.5rem;
+  &#readmore {
 
-    &:hover {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6l-2-2v8H5V5h8l-2-2H5zm9 0l2.656 2.656-7.5 7.5 1.688 1.688 7.5-7.5L21 10V3h-7z' fill='%23666'/%3E%3C/svg%3E");
+    &:hover, &:focus {
+      text-decoration: none;
     }
   }
 }

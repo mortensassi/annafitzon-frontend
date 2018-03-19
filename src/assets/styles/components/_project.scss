@@ -43,16 +43,9 @@
 }
 
 .project__content {
-  transition: all .3s cubic-bezier(.5,.9,0,1);
-  overflow: hidden;
-  max-height: 600px;
 
-  &--read-more {
-    transition: all .3s cubic-bezier(.5,.9,0,1);
-    max-height: 100vh;
-  }
-
-  + .read-more {
-    margin-top: 10px;
+  > span {
+    display: block;
+    margin-top: 1rem;
   }
 }
