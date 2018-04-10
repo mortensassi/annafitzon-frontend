@@ -9,7 +9,6 @@
 
 <script>
   import axios from 'axios'
-  import SinglePost from '../global/SinglePost.vue'
 
   export default {
     name: 'Page',
@@ -50,7 +49,7 @@
     },
 
     components: {
-      'single-post': SinglePost
+      'single-post': () => import(/* webpackChunkName: "Single Post" */ '../global/SinglePost.vue')
     }
   }
 </script>

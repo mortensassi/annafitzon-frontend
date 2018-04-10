@@ -9,7 +9,6 @@
 
 <script>
   import axios from 'axios'
-  import ListProjects from '../global/ListProjects.vue'
 
   export default {
     name: 'Homepage',
@@ -41,7 +40,7 @@
     },
 
     components: {
-      'list-projects': ListProjects
+      'list-projects': () => import(/* webpackChunkName: "List Projects" */ '../global/ListProjects.vue')
     }
   }
 </script>
