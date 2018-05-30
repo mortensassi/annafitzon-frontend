@@ -23,8 +23,10 @@
           a(title="Mail an Anna schreiben" href="mailto:info@annafitzon.de") info@annafitzon.de
 
         li.menu__item.menu__item--imprint
-
           router-link(to="impressum", @click.native="closeMenu") Impressum
+
+        li.menu__item.menu__item--privacy
+          router-link(to="datenschutz", @click.native="closeMenu") Datenschutz
 </template>
 
 <script>

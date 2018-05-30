@@ -1,5 +1,5 @@
 'use strict'
 module.exports = {
   NODE_ENV: '"production"',
-  API_URL: '"http://annafitzon.de/wp"'
+  API_URL: '"https://annafitzon.de/wp"'
 }

@@ -20,6 +20,11 @@ export default new Router({
       component: Page
     },
     {
+      name: 'Datenschutz',
+      path: '/datenschutz',
+      component: Page
+    },
+    {
       name: 'NotFound',
       path: '*',
       component: NotFound

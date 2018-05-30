@@ -5,8 +5,13 @@ import App from './App'
 import router from './router'
 import * as svgicon from 'vue-svgicon'
 import ReadMore from 'vue-read-more'
+import IntersectionObserver from 'intersection-observer'
+import VueClazyLoad from 'vue-clazy-load'
 
 Vue.config.productionTip = false
+
+Vue.use(IntersectionObserver)bre
+Vue.use(VueClazyLoad)
 
 Vue.use(svgicon, {
   tagName: 'svgicon'

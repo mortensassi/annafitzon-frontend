@@ -3,7 +3,7 @@
     div.loading(:class="loading ? '' : 'loading--end'")
       -for ($i=0;$i<4;$i = $i + 1 )
         .loading__dot
-    .page(:class="{'page--show': showPage}")
+    .page(v-if="loading === false" :class="{'page--show': showPage}")
       single-post(:post="post")
 </template>
 

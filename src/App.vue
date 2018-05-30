@@ -6,7 +6,8 @@
         .col-xs-12.col-sm-4.col-md-3.fixed
           wpheader(v-bind="menu")
         main.col-xs-12.col-sm-8.col-md-9#main
-          router-view
+          transition(name="fade")
+            router-view(:key="$route.path")
         back-to-top(text="Top")
 
 </template>
