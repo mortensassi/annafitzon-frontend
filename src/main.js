@@ -10,7 +10,7 @@ import VueClazyLoad from 'vue-clazy-load'
 
 Vue.config.productionTip = false
 
-Vue.use(IntersectionObserver)bre
+Vue.use(IntersectionObserver)
 Vue.use(VueClazyLoad)
 
 Vue.use(svgicon, {

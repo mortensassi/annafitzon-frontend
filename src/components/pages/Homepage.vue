@@ -28,7 +28,7 @@
 
     methods: {
       getProjects () {
-        axios.get(process.env.API_URL + '/wp-json/wp/v2/projects')
+        axios.get(process.env.API_URL + '/wp-json/wp/v2/projects?per_page=100')
           .then(response => {
             this.loading = false
             this.projects = response.data
